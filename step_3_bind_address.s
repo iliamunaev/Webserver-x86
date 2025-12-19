@@ -59,7 +59,7 @@ open_socket:
 bind_addr:    
     sub rsp, 16                     # Build sockaddr_in on the stack (16 bytes)
 
-    mov word ptr [rsp+0], 2         # sin_family = AF_INET
+    mov word ptr [rsp+0], 0x02      # sin_family = AF_INET
     mov word ptr [rsp+2], 0x5000    # sin_port = htons(80), 80 = 0x5000
     mov dword ptr [rsp+4], 0        # sin_addr = INADDR_ANY (0.0.0.0)
     mov qword ptr [rsp+8], 0        # sin_zero padding
